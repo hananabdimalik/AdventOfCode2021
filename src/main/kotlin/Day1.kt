@@ -2006,12 +2006,24 @@ class Day1 {
         .map(String::toInt)
 
     fun partOne(input: List<Int> = puzzleInput): Int =
-        input.filterIndexed { index, i ->
+        input.filterIndexed { index, value -> //retains index
             if (index > 1) {
-                input[index - 1] < i
+                input[index - 1] < value
             } else false
         }.size
 
+//    {
+//
+//        var count = 0
+//        var previousValue: Int? = null
+//        input.forEach {
+//            if (previousValue != null && it > previousValue!!) {
+//                count++
+//            }
+//            previousValue = it
+//        }
+//        return count
+//    }
 
     fun partTwo(input: List<Int> = puzzleInput): Int {
         val sum = input.mapIndexedNotNull { index, value ->
